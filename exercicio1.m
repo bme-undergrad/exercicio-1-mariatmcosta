@@ -8,7 +8,12 @@ imax = 20;
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Segundo chute inicial, necessário para o método da secante:
-  x1 = x0 * 1.1;   % pequeno deslocamento inicial
+  if x0 == 0
+    x1 = 1e-3;  % ou qualquer valor significativo
+  else
+    x1 = x0 * 1.1;
+  endif
+
 
   t_roots = zeros(imax,1);
   erro = zeros(imax,1);
@@ -25,8 +30,7 @@ imax = 20;
       endif
     endif
      % fórmula da secante
-    t_roots(ii+1) = t_roots(ii) - func(t_roots(ii)) * (t_roots(ii) - t_roots(ii-1)) / ...
-                    (func(t_roots(ii)) - func(t_roots(ii-1)));
+    t_roots(ii+1) = t_roots(ii) - func(t_roots(ii)) * ((t_roots(ii) - t_roots(ii-1)) / (func(t_roots(ii)) - func(t_roots(ii-1))));
   endfor
   
   t = t_roots(ii);
