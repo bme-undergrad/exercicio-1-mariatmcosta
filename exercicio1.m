@@ -28,7 +28,10 @@ imax = 20;
     endif
   endfor
   
-  t = round(t_roots(ii) * 1e4) / 1e4;
+  t_valores = t_roots(t_roots > 0);     % pega só as raízes positivas
+  t = min(t_valores);                   % pega a menor positiva
+  t = round(t * 1e4) / 1e4;             % arredonda em 4 casas
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
