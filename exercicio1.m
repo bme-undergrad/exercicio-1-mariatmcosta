@@ -28,7 +28,7 @@ imax = 20;
     endif
   endfor
   
-  t = t_roots(ii);
+  t = round(t_roots(ii) * 1e4) / 1e4;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
