@@ -1,4 +1,4 @@
-function t = exercicio1(func,x0,imax)
+function t = exercicio1(func,x0)
 
 % nao alterar: inicio
 es = 0.01;
@@ -28,10 +28,7 @@ imax = 20;
     endif
   endfor
   
-  t_valores = t_roots(t_roots > 0);     % pega só as raízes positivas
-  t = min(t_valores);                   % pega a menor positiva
-  t = round(t * 1e4) / 1e4;             % arredonda em 4 casas
-
+  t = round(t_roots(ii) * 1e4) / 1e4;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
